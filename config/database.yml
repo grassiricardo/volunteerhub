@@ -2,21 +2,21 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: <%= ENV['H2S_VOLUNTARIADO_DATABASE_USERNAME'] %>
-  password: <%= ENV['H2S_VOLUNTARIADO_DATABASE_PASSWORD'] %>
-  host: <%= ENV['H2S_VOLUNTARIADO_DATABASE_HOST'] %>
+  username: <%= ENV['VOLUNTEER_HUB_DATABASE_USERNAME'] %>
+  password: <%= ENV['VOLUNTEER_HUB_DATABASE_PASSWORD'] %>
+  host: <%= ENV['VOLUNTEER_HUB_DATABASE_HOST'] %>
 
 development:
   <<: *default
-  database: <%= ENV['H2S_VOLUNTARIADO_DATABASE_NAME'] %>
+  database: <%= ENV['VOLUNTEER_HUB_DATABASE_NAME'] %>
 
 test:
   <<: *default
-  database: <%= ENV['H2S_VOLUNTARIADO_DATABASE_TEST_NAME'] %>
+  database: <%= ENV['VOLUNTEER_HUB_DATABASE_TEST_NAME'] %>
   template: template0
 
 production:
   <<: *default
-  database: <%= ENV['H2S_VOLUNTARIADO_DATABASE_NAME'] %>
-  username: <%= ENV['H2S_VOLUNTARIADO_DATABASE_USERNAME'] %>
-  password: <%= ENV['H2S_VOLUNTARIADO_DATABASE_PASSWORD'] %>
+  database: <%= ENV['VOLUNTEER_HUB_DATABASE_NAME'] %>
+  username: <%= ENV['VOLUNTEER_HUB_DATABASE_USERNAME'] %>
+  password: <%= ENV['VOLUNTEER_HUB_DATABASE_PASSWORD'] %>

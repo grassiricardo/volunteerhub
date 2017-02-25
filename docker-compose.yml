@@ -2,7 +2,7 @@ version: '2'
 
 services:
   postgres:
-    container_name: h2s-voluntariado_postgresql.local
+    container_name: volunteerhub_postgresql.local
     image: 'postgres:9.5'
     ports:
       - '5432:5432'
@@ -10,14 +10,14 @@ services:
       - './data/postgresql:/var/lib/postgresql'
 
   mailcatcher:
-    container_name: h2s-voluntariado_mailcatcher.local
+    container_name: volunteerhub_mailcatcher.local
     image: yappabe/mailcatcher
     ports:
         - 1025:1025
         - 1080:1080
 
   redis:
-    container_name: h2s-voluntariado_redis.local
+    container_name: volunteerhub_redis.local
     image: 'redis:3.2-alpine'
     command: redis-server
     ports:
@@ -25,8 +25,8 @@ services:
     volumes:
       - './data/redis:/var/lib/redis/data'
 
-  website:
-    container_name: h2s-voluntariado.local
+  app:
+    container_name: volunteerhub.local
     depends_on:
       - 'postgres'
       - 'redis'
@@ -34,7 +34,7 @@ services:
     ports:
       - '3000:3000'
     volumes:
-      - '.:/hack2save-voluntariado'
+      - '.:/volunteerhub'
     env_file:
       - './data/application/.env'
     stdin_open: true
@@ -43,7 +43,7 @@ services:
       ELASTICSEARCH_URL: elasticsearch:9200
 
   elasticsearch:
-    container_name: h2s-voluntariado_elasticsearch.local
+    container_name: volunteerhub_elasticsearch.local
     image: 'elasticsearch:2'
     ports:
       - '9200:9200'
