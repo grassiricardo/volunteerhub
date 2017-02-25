@@ -21,6 +21,7 @@ gem 'omniauth', '~> 1.6', '>= 1.6.1'
 gem 'omniauth-facebook', '~> 4.0'
 gem 'cloudinary', '~> 1.5', '>= 1.5.2'
 gem 'carrierwave', '~> 1.0'
+gem 'mini_magick', '~> 4.6', '>= 4.6.1'
 gem 'searchkick', '~> 2.1', '>= 2.1.1'
 
 group :development, :test do
