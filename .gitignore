@@ -16,3 +16,9 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+#containers
+data/application/.env
+data/postgres
+data/bundle
+data/redis
