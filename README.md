@@ -1,5 +1,5 @@
 
-**kmb-api**
+**VolunteerHub**
 ===================
 
 ![ruby](https://img.shields.io/badge/Ruby-2.3.3-red.svg)
