@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Voluntaries</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Bio</th>
+      <th>Age</th>
+      <th>Email</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @voluntaries.each do |voluntary| %>
+      <tr>
+        <td><%= voluntary.name %></td>
+        <td><%= voluntary.bio %></td>
+        <td><%= voluntary.age %></td>
+        <td><%= voluntary.email %></td>
+        <td><%= voluntary.user %></td>
+        <td><%= link_to 'Show', voluntary %></td>
+        <td><%= link_to 'Edit', edit_voluntary_path(voluntary) %></td>
+        <td><%= link_to 'Destroy', voluntary, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Voluntary', new_voluntary_path %>
