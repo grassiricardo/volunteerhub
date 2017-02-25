@@ -2,18 +2,21 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: postgres
-  password:
-  host: postgres
+  username: <%= ENV['H2S_VOLUNTARIADO_DATABASE_USERNAME'] %>
+  password: <%= ENV['H2S_VOLUNTARIADO_DATABASE_PASSWORD'] %>
+  host: <%= ENV['H2S_VOLUNTARIADO_DATABASE_HOST'] %>
 
 development:
   <<: *default
-  database: hack2save-voluntariado_development
+  database: <%= ENV['H2S_VOLUNTARIADO_DATABASE_NAME'] %>
 
 test:
   <<: *default
-  database: hack2save-voluntariado_test
+  database: <%= ENV['H2S_VOLUNTARIADO_DATABASE_TEST_NAME'] %>
+  template: template0
 
 production:
   <<: *default
-  database: hack2save-voluntariado_production
+  database: <%= ENV['H2S_VOLUNTARIADO_DATABASE_NAME'] %>
+  username: <%= ENV['H2S_VOLUNTARIADO_DATABASE_USERNAME'] %>
+  password: <%= ENV['H2S_VOLUNTARIADO_DATABASE_PASSWORD'] %>
