@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-	root to: 'voluntaries#index'
 
+  root to: "projects#index"
   resources :projects
   resources :voluntaries
   devise_for :users, controllers: { omniauth_callbacks: "callbacks" }

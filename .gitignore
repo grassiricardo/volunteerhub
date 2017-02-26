@@ -22,3 +22,4 @@ data/application/.env
 data/postgres
 data/bundle
 data/redis
+vendor/bundle
