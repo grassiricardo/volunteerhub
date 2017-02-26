@@ -4,7 +4,11 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+
+    if params[:keywords].present?
+      # Diz ao elastickick para pesquisar as keyrwords nos campos name e description
+      @projects = Project.search params[:keywords], fields: [:name, :description, :institution]
+    end
   end
 
   # GET /projects/1
