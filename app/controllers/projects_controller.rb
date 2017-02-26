@@ -24,9 +24,8 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
-    @image = Image.new(params [:image])
-    # @project = Project.
     @project = Project.new(project_params)
+    @image = Image.new(image_params)
 
     respond_to do |format|
       if @project.save
@@ -71,6 +70,10 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:name, :description, :institution, :url, :status, :voluntary_id, :image)
+      params.require(:project).permit(:name, :description, :institution, :url, :status, :voluntary_id)
+    end
+
+    def image_params
+      params.require(:image).permit(:image_url, project_id: @project_id)
     end
 end
