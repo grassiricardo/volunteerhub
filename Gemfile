@@ -19,9 +19,17 @@ gem 'devise', '~> 4.2'
 gem 'bcrypt', '~> 3.1.7'
 gem 'omniauth', '~> 1.6', '>= 1.6.1'
 gem 'omniauth-facebook', '~> 4.0'
+gem 'omniauth-google-oauth2', '~> 0.4.1'
 gem 'cloudinary', '~> 1.5', '>= 1.5.2'
 gem 'carrierwave', '~> 1.0'
 gem 'searchkick', '~> 2.1', '>= 2.1.1'
+gem 'sprockets-rails', '>= 2.3.2'
+gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'font-awesome-sass', '~> 4.7.0'
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.3.3'
+end
 
 group :development, :test do
   gem 'byebug', platform: :mri
