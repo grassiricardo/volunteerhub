@@ -4,7 +4,11 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+
+    if params[:keywords].present?
+      # Diz ao elastickick para pesquisar as keyrwords nos campos name e description
+      @projects = Project.search params[:keywords], fields: [:name, :description, :institution]
+    end
   end
 
   # GET /projects/1
@@ -25,10 +29,11 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
     @project = Project.new(project_params)
-    @image = Image.new(image_params)
 
     respond_to do |format|
       if @project.save
+        @image = Image.new(image_url: params[:project][:image_url], project_id: @project.id)
+        @image.save
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
         format.json { render :show, status: :created, location: @project }
       else
@@ -74,6 +79,6 @@ class ProjectsController < ApplicationController
     end
 
     def image_params
-      params.require(:image).permit(:image_url, project_id: @project_id)
+      params.require(:project).permit(:image_url)
     end
 end

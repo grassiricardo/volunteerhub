@@ -9,6 +9,22 @@
   </head>
 
   <body>
+
+  	<header>
+  		<nav>
+  		<% if current_user %>
+  			<ul>
+  				<li><%= current_user.name %>	</li>
+  				<li><%= current_user.email %></li>
+  				<% if current_user.photo.present? %>
+    				<%= image_tag(current_user.photo, size: "40") %>
+  				<% end %>
+  				<li> <%= link_to "Sair", destroy_user_session_path, method: :delete %></li>
+  			</ul>
+  			
+  		<% end %>
+  		</nav>
+  	</header>
     <%= yield %>
   </body>
 </html>
