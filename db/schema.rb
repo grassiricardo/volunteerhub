@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20170226011905) do
     t.integer  "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "image_url"
     t.index ["project_id"], name: "index_images_on_project_id", using: :btree
   end
 

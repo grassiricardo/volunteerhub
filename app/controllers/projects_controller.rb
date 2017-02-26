@@ -32,6 +32,8 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
+        @image = Image.new(image_url: params[:project][:image_url], project_id: @project.id)
+        @image.save
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
         format.json { render :show, status: :created, location: @project }
       else
@@ -74,5 +76,9 @@ class ProjectsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
       params.require(:project).permit(:name, :description, :institution, :url, :status, :voluntary_id)
+    end
+
+    def image_params
+      params.require(:project).permit(:image_url)
     end
 end

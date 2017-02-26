@@ -44,7 +44,7 @@ Este App é uma plataforma que tem como objetivo centralizar projetos voluntári
 
 # Run
 ```
-$ docker-compose exec website rails db:create db:migrate db:seed
+$ docker-compose exec app rails db:create db:migrate db:seed
 ```
 
 # Test App
